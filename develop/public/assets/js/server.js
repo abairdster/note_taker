@@ -1,3 +1,8 @@
+//require dependencies
+//setup express app
+//setup data parse
+//require route file
+//setup listener
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
