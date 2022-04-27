@@ -1,3 +1,11 @@
+//Notes var
+//APu routes
+//setup the API to connect notes get route
+//setup the API to connect notes post route
+//Retrieve notes with id 
+//Delete notes with id
+//Display notes in html when accessed
+//update json whenever note is added or removed
 const fs = require('fs');
 const path= require('path');
 
