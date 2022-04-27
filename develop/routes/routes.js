@@ -1,5 +1,5 @@
 //Notes var
-//APu routes
+//API routes
 //setup the API to connect notes get route
 //setup the API to connect notes post route
 //Retrieve notes with id 
@@ -13,11 +13,11 @@ module.exports = app => {
     fs.readFile("./db/db.json", function(err,data)) => {
         if (err) throw err;
         var notes = JSON.parse(data);
-        app.get("api/notes",function(req,res) {
+        app.get("api/notes.html",function(req,res) {
             res.json(notes);
         });
 
-        app.post("api/notes",function(req,res) {
+        app.post("api/notes.html",function(req,res) {
             let newNote=req.body.notes;
             notes.push(newNote);
             updateDb();
@@ -35,7 +35,7 @@ module.exports = app => {
         });
 
         app.get("/notes",function(req,res) {
-            res.sendFile(path.join(__dirname,"../public/notes.html"));
+            res.sendFile(path.join(__dirname,"./public/notes.html"));
         });
 
         function updateDb() {
