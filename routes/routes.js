@@ -6,16 +6,17 @@
 //Delete notes with id
 //Display notes in html when accessed
 //update json whenever note is added or removed
+const express = require('express')
+const router = express.Router();
 const fs = require('fs');
-const path= require('path');
 
 module.exports = app => {
-    fs.readFile("./db/db.json", function(err,data)) => {
+    fs.readFile("./db/db.json", function(err,data){
         if (err) throw err;
         var notes = JSON.parse(data);
         app.get("api/notes.html",function(req,res) {
             res.json(notes);
-        });
+        })
 
         app.post("api/notes.html",function(req,res) {
             let newNote=req.body.notes;
@@ -46,4 +47,23 @@ module.exports = app => {
         }
 
     }
-}
+)}
+
+router.post("/",(req, res) => {
+    fs.readFile("./db/db.json","utf-8",(err, data) => {
+        if(err) {
+            throw err;
+        }else{
+
+            const db = JSON.parse(data);
+            console.log(req.body);
+            db.push(req.body);
+            fs.writeFile("./db/db.json",JSON.stringify(note));
+            if (err){
+                throw err;
+            }else{
+                res.json(notes)
+            }
+        }
+    })
+})
