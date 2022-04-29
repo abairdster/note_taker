@@ -9,7 +9,7 @@ let routes = require('./routes/routes.js')
 
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,9 +25,9 @@ app.get('/notes', (req, res) => {
 })
 
 app.use(express.static("public"))
-const allRoutes = require("./routes");
+const allRoutes = require("./server.js");
 const { all } = require('express/lib/application');
-app.use(allRoutes);
+app.use("allRoutes");
 
 app.listen(PORT,() =>{
     console.log("App listening on port:" + PORT);
