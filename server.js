@@ -34,6 +34,6 @@ const { all } = require('express/lib/application');
 //app.use("allRoutes");
 
 app.listen(PORT,() =>{
-    console.log("App listening on port:" + PORT);
+    console.log("App listening on port:" +${PORT});
 });
 
